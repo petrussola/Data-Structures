@@ -22,9 +22,7 @@ class Queue:
             return
         else:
             self.size -= 1
-            value = self.storage.tail.value
-            self.storage.remove_from_tail()
-            return value
+            return self.storage.remove_from_tail()
 
     def len(self):
         return self.size
