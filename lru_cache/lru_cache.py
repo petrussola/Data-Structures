@@ -25,8 +25,18 @@ class LRUCache:
     """
 
     def get(self, key):
-        pass
-        # return self.storage[key]
+        # if the key doesn't exist, return None
+        if key in self.storage:
+            # adds key to the head => most recently used item
+            current_node = self.queue.head
+            while current_node.value != key:
+                current_node = current_node.next
+            self.queue.move_to_front(current_node)
+            return self.storage[key]
+        # if it exists
+        else:
+            return None
+
 
     """
     Adds the given key-value pair to the cache. The newly-
@@ -40,7 +50,7 @@ class LRUCache:
     """
 
     def set(self, key, value):
-        if self.storage[key]:
+        if key in self.storage:
             self.storage[key] = value
         else:
             if self.limit > self.usage:
