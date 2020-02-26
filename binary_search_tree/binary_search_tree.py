@@ -1,5 +1,5 @@
-import sys
-sys.path.append('../queue_and_stack')
+# import sys
+# sys.path.append('../queue_and_stack')
 from dll_queue import Queue
 from dll_stack import Stack
 
@@ -12,11 +12,60 @@ class BinarySearchTree:
 
     # Insert the given value into the tree
     def insert(self, value):
-        pass
+        next_node = None
+        if value < self.value:
+            next_node = self.left
+            if not next_node:
+                self.left = BinarySearchTree(value)
+        else:
+            next_node = self.right
+            if not next_node:
+                self.right = BinarySearchTree(value)
+        while next_node:
+            if value < next_node.value:
+                if next_node.left:
+                    next_node = next_node.left
+                else:
+                    next_node.left = BinarySearchTree(value)
+                    return
+            else:
+                if next_node.right:
+                    next_node = next_node.right
+                else:
+                    next_node.right = BinarySearchTree(value)
+                    return 
+
+        # if value < self.value:
+        #     if not self.left:
+        #         self.left = BinarySearchTree(value)
+        #         return
+        #     else:
+        #         next_node = self.left
+        # else:
+        #     if not self.right:
+        #         self.right = BinarySearchTree(value)
+        #         return
+        #     else:
+        #         next_node = self.right
+        # while next_node:
+        #     # go down the tree
+        #     if value < next_node.value and next_node.left:
+        #         next_node = next_node.left
+        #     elif value >= next_node.value and next_node.right:
+        #         next_node = next_node.right
+        # if value < next_node.value:
+        #     next_node.left = BinarySearchTree(value)
+        # else:
+        #     next_node.right = BinarySearchTree(value)
 
     # Return True if the tree contains the value
     # False if it does not
+
     def contains(self, target):
+        # if there is no root, return False
+
+        # if root == target, return root.value
+
         pass
 
     # Return the maximum value found in the tree
