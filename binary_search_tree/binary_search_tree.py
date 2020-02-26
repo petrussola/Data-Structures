@@ -24,40 +24,22 @@ class BinarySearchTree:
             else:
                 self.right = BinarySearchTree(value)
 
-
+    # Return True if the tree contains the value
+    # False if it does not
     def contains(self, target):
-        next_node = None
-        # if there is no root, return False
-        # if root == target, return root.value
-        if target == self.value:
+        if self.value == target:
             return self.value
-        elif not self.value:
-            return False
+        elif target < self.value:
+            if self.left:
+                return self.left.contains(target)
+            else:
+                return False
         else:
-            if target < self.value:
-                next_node = self.left
+            if self.right:
+                return self.right.contains(target)
             else:
-                next_node = self.right
+                return False
 
-        def check(node, target):
-            if node.value == target:
-                return node.value
-            elif target < node.value:
-                next_node
-            else:
-                if target < self.value:
-                    if self.left:
-                        next_node = self.left
-                        return check(next_node, target)
-                    else:
-                        return False
-                else:
-                    if self.right:
-                        next_node = self.right
-                        return check(next_node, target)
-                    else:
-                        return False
-        return check(self, target)
 
     # Return the maximum value found in the tree
 
