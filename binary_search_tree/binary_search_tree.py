@@ -12,63 +12,55 @@ class BinarySearchTree:
 
     # Insert the given value into the tree
     def insert(self, value):
-        next_node = None
+        
         if value < self.value:
-            next_node = self.left
-            if not next_node:
+            if self.left:
+                return self.left.insert(value)
+            else:
                 self.left = BinarySearchTree(value)
         else:
-            next_node = self.right
-            if not next_node:
-                self.right = BinarySearchTree(value)
-        while next_node:
-            if value < next_node.value:
-                if next_node.left:
-                    next_node = next_node.left
-                else:
-                    next_node.left = BinarySearchTree(value)
-                    return
+            if self.right:
+                return self.right.insert(value)
             else:
-                if next_node.right:
-                    next_node = next_node.right
-                else:
-                    next_node.right = BinarySearchTree(value)
-                    return 
+                self.right = BinarySearchTree(value)
 
-        # if value < self.value:
-        #     if not self.left:
-        #         self.left = BinarySearchTree(value)
-        #         return
-        #     else:
-        #         next_node = self.left
-        # else:
-        #     if not self.right:
-        #         self.right = BinarySearchTree(value)
-        #         return
-        #     else:
-        #         next_node = self.right
-        # while next_node:
-        #     # go down the tree
-        #     if value < next_node.value and next_node.left:
-        #         next_node = next_node.left
-        #     elif value >= next_node.value and next_node.right:
-        #         next_node = next_node.right
-        # if value < next_node.value:
-        #     next_node.left = BinarySearchTree(value)
-        # else:
-        #     next_node.right = BinarySearchTree(value)
-
-    # Return True if the tree contains the value
-    # False if it does not
 
     def contains(self, target):
+        next_node = None
         # if there is no root, return False
-
         # if root == target, return root.value
+        if target == self.value:
+            return self.value
+        elif not self.value:
+            return False
+        else:
+            if target < self.value:
+                next_node = self.left
+            else:
+                next_node = self.right
 
-        pass
+        def check(node, target):
+            if node.value == target:
+                return node.value
+            elif target < node.value:
+                next_node
+            else:
+                if target < self.value:
+                    if self.left:
+                        next_node = self.left
+                        return check(next_node, target)
+                    else:
+                        return False
+                else:
+                    if self.right:
+                        next_node = self.right
+                        return check(next_node, target)
+                    else:
+                        return False
+        return check(self, target)
 
     # Return the maximum value found in the tree
+
     def get_max(self):
         pass
 
