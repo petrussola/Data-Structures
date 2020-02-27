@@ -29,6 +29,7 @@ class LRUCache:
         if key in self.storage:
             # adds key to the head => most recently used item
             current_node = self.queue.head
+            # looping over the DLL (queue)
             while current_node.value != key:
                 current_node = current_node.next
             self.queue.move_to_front(current_node)
