@@ -2,11 +2,11 @@ Answer the following questions for each of the data structures you implemented a
 
 ## Queue
 
-1. What is the runtime complexity of `enqueue`?
+1. What is the runtime complexity of `enqueue`? O(1)
 
-2. What is the runtime complexity of `dequeue`?
+2. What is the runtime complexity of `dequeue`? O(1)
 
-3. What is the runtime complexity of `len`?
+3. What is the runtime complexity of `len`? O(1) <-- O(n) worst case because u have to traverse every node
 
 ## Binary Search Tree
 
@@ -30,19 +30,19 @@ Answer the following questions for each of the data structures you implemented a
 
 ## Doubly Linked List
 
-1. What is the runtime complexity of `ListNode.insert_after`?
+1. What is the runtime complexity of `ListNode.insert_after`? O(n)
 
-2. What is the runtime complexity of `ListNode.insert_before`?
+2. What is the runtime complexity of `ListNode.insert_before`? O(n)
 
-3. What is the runtime complexity of `ListNode.delete`?
+3. What is the runtime complexity of `ListNode.delete`? O(n) <-- O(1) if we know the item
 
-4. What is the runtime complexity of `DoublyLinkedList.add_to_head`?
+4. What is the runtime complexity of `DoublyLinkedList.add_to_head`? O(1)
 
-5. What is the runtime complexity of `DoublyLinkedList.remove_from_head`?
+5. What is the runtime complexity of `DoublyLinkedList.remove_from_head`? O(1)
 
-6. What is the runtime complexity of `DoublyLinkedList.add_to_tail`?
+6. What is the runtime complexity of `DoublyLinkedList.add_to_tail`? O(1)
 
-7. What is the runtime complexity of `DoublyLinkedList.remove_from_tail`?
+7. What is the runtime complexity of `DoublyLinkedList.remove_from_tail`? O(1)
 
 8. What is the runtime complexity of `DoublyLinkedList.move_to_front`?
 
